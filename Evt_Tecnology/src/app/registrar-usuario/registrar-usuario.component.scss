@@ -1,0 +1,200 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f7;
+}
+
+.login-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Left Side - Imagen del Establecimiento */
+.left-side {
+    width: 50%;
+}
+
+.left-side .establishment-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Right Side - Formulario de Registro */
+.right-side {
+    width: 50%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    box-shadow: -10px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-icon {
+  width: 80px; /* Ajusta el tamaño según sea necesario */
+  display: block;
+  margin: 0 auto 20px auto; /* Centra la imagen y añade espacio debajo */
+}
+
+.header {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.welcome-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #666;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 2px solid #d3d3d3;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #1a73e8;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #666;
+}
+
+.checkbox-group input {
+    margin-right: 5px;
+}
+
+.login-btn {
+    padding: 12px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #0052cc;
+}
+
+.register-text {
+    font-size: 14px;
+    color: #333;
+    margin-top: 20px;
+}
+
+.register-text a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+
+.login-container {
+    flex: 1; /* Empuja el footer hacia abajo si el contenido es insuficiente */
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  background-color: #2B3555;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content .brand {
+    font-size: 16px;
+}
+
+.footer-content .icon {
+    font-size: 20px;
+}
+
+.footer-content .contact-info {
+    font-size: 14px;
+}
+
+
+/* Responsividad */
+@media (max-width: 1024px) {
+    .login-container {
+        flex-direction: column;
+    }
+
+    .left-side {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .right-side {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .right-side {
+        padding: 10px;
+    }
+
+    .login-form {
+        width: 90%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

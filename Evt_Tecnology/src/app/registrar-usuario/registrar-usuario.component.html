@@ -1,0 +1,62 @@
+<div class="login-container">
+  <div class="left-side">
+      <img src="register.png" alt="Imagen de registro" class="establishment-image">
+  </div>
+
+  <div class="right-side">
+    <div class="header">
+        <!-- Imagen agregada encima del formulario -->
+        <img src="img2.png" alt="Icono" class="form-icon">
+          <h1 class="welcome-title">&nbsp;&nbsp;¡Bienvenido!</h1>
+          <p class="subtitle">Por favor completa tus datos</p>
+      </div>
+
+      <!-- Formulario de Registro -->
+      <form class="login-form" method="POST">
+          <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="userNombre" placeholder="Ingresa tu nombre" required>
+          </div>
+
+          <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="userApellido" placeholder="Ingresa tu apellido" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input type="text" id="telefono" name="userTelefono" placeholder="Ingresa tu teléfono">
+        </div>
+  
+        <div class="form-group">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="userEmail" placeholder="Ingresa tu correo" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contrasena">Contraseña</label>
+          <input type="password" id="contrasena" name="userPassword" placeholder="Ingresa tu contraseña" required>
+      </div>
+      
+      <div class="form-group">
+          <label for="confirmar-contrasena">Confirmar Contraseña</label>
+          <input type="password" id="confirmar-contrasena" name="confirmPassword" placeholder="Confirma tu contraseña" required>
+      </div>
+      
+        <!-- Botón Registrarse -->
+        <div class="form-group button-container">
+          <button type="submit" class="login-btn">Registrarme</button>
+        </div>
+      </form>
+      
+      <p class="register-text">¿Ya tienes una cuenta? <a href="#">Inicia Sesión</a></p>
+    </div>
+
+    <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span class="brand">TechConnect</span>
+      <span class="contact-info">Contáctanos +51 895 678 456</span>
+    </div>
+  </footer>
+</div>
