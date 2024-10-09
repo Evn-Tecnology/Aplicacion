@@ -1,0 +1,39 @@
+<div class="login-container">
+    <!-- Sección izquierda con la imagen -->
+    <div class="left-side">
+        <img src="foto1.png" alt="Imagen de código de seguridad" class="establishment-image">
+    </div>
+  
+    <!-- Sección derecha con el formulario -->
+    <div class="right-side">
+        <div class="header">
+            <h1 class="welcome-title">Ingresa el código de seguridad</h1>
+            <p class="subtitle">Comprueba si recibiste un correo electrónico con tu código de 6 dígitos.</p>
+        </div>
+  
+        <!-- Formulario para ingresar el código de seguridad -->
+        <form class="login-form" method="POST">
+            <div class="form-group">
+                <label for="codigo-seguridad">Código de seguridad</label>
+                <input type="text" id="codigo-seguridad" name="securityCode" placeholder="Ingresa tu código" required>
+            </div>
+  
+            <!-- Enlace para reenviar el código -->
+            <p class="resend-code"><a href="#">Reenviar código</a></p>
+  
+            <!-- Botón Enviar -->
+            <div class="form-group button-container">
+                <button type="submit" class="login-btn" routerLink = "/recuperar-contraseña-3" >Enviar</button>
+            </div>
+        </form>
+    </div>
+  
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="brand">TechConnect</span>
+            <span class="contact-info">Contáctanos +51 895 678 456</span>
+        </div>
+    </footer>
+  </div>
+  

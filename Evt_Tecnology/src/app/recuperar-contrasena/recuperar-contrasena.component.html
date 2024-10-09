@@ -1,0 +1,36 @@
+<div class="login-container">
+    <!-- Sección izquierda con la imagen -->
+    <div class="left-side">
+        <img src="foto1.png" alt="Imagen de recuperación" class="establishment-image">
+    </div>
+  
+    <!-- Sección derecha con el formulario -->
+    <div class="right-side">
+        <div class="header">
+            <h1 class="welcome-title">Recuperación de contraseña</h1>
+            <p class="subtitle">Por favor introduce tu dirección de correo electrónico</p>
+        </div>
+  
+        <!-- Formulario de recuperación de contraseña -->
+        <form class="login-form" method="POST">
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="userEmail" placeholder="Ingresa tu correo" required>
+            </div>
+  
+            <!-- Botón Enviar -->
+            <div class="form-group button-container">
+                <button type="submit" class="login-btn" routerLink = "/recuperar-contraseña-2">Enviar</button>
+            </div>
+        </form>
+    </div>
+  
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="brand">TechConnect</span>
+            <span class="contact-info">Contáctanos +51 895 678 456</span>
+        </div>
+    </footer>
+  </div>
+  
