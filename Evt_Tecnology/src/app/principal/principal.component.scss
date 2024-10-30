@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap'); // Fuente moderna
+
+// Variables de color
+$primary-color: #1a2540;
+$link-color: #ffffff;
+$link-hover-color: #9bb1ff;
+$font-family: 'Roboto', sans-serif;
+$primary-color: #1a2540;
+$secondary-color: #007bff;
+$text-color: #333;
+$background-color: #f9f9f9;
+$font-family: 'Arial', sans-serif;
+$hero-overlay-color: rgba(26, 37, 64, 0.8);
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $primary-color;
+  padding: 15px 20px;
+  color: $link-color;
+  font-family: $font-family;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    
+    img {
+      width: 30px;
+      margin-right: 10px;
+    }
+    
+    span {
+      font-size: 1.4em;
+      font-weight: 700; // Más grosor para destacar
+      color: lighten($primary-color, 40%);
+      letter-spacing: 1px;
+    }
+  }
+  
+  .navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 200px;
+
+    li a {
+      color: $link-color;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1em;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: $link-hover-color; // Color más claro al pasar el cursor
+      }
+    }
+  }
+
+  .navbar-search {
+    display: flex;
+    align-items: center;
+    
+    input {
+      padding: 6px 10px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      width: 150px;
+      margin-right: 5px;
+      transition: width 0.3s ease;
+      font-size: 14px;
+      color: $primary-color;
+      
+      &:focus {
+        width: 200px;
+      }
+    }
+    
+    button {
+      background: none;
+      border: none;
+      color: $link-color;
+      cursor: pointer;
+      font-size: 1em;
+    }
+  }
+
+  .navbar-auth {
+    display: flex;
+    gap: 10px; // Espacio entre los botones
+  
+    a {
+      padding: 8px 15px;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+  
+      &:first-child { // Botón de "Iniciar sesión"
+        background-color: transparent;
+        border: 1px solid #fff;
+        
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+  
+      &:last-child { // Botón de "Registrarse"
+        background-color: #007bff;
+        border: 1px solid #007bff;
+        
+        &:hover {
+          background-color: darken(#007bff, 10%);
+        }
+      }
+    }
+  }
+}
+
+// Sección principal
+.hero-section {
+  background-image: url('/landing.png');
+  background-size: cover;
+  background-position: center;
+  height: 340px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $hero-overlay-color;
+    z-index: 1;
+  }
+
+  .hero-text {
+    color: #fff;
+    position: relative;
+    z-index: 2;
+    h1 {
+      font-size: 2.8em;
+      font-weight: bold;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    }
+    p {
+      font-size: 1.2em;
+      margin: 10px 0 20px;
+    }
+    .cta-button {
+      background-color: $secondary-color;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+  }
+}
+
+// Beneficios
+.benefits-section {
+  text-align: center;
+  padding: 50px 30px;
+  background-color: $background-color;
+
+  h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  .benefits {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .benefit {
+      text-align: center;
+      width: 100%;
+      max-width: 300px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+      }
+
+      h3 {
+        font-size: 1.2em;
+        color: $secondary-color;
+        margin: 10px 0;
+      }
+
+      p {
+        font-size: 0.95em;
+        color: darken($text-color, 10%);
+      }
+    }
+  }
+}
+
+// Eventos
+.upcoming-events {
+  padding: 50px 30px;
+  background-color: lighten($background-color, 5%);
+  
+  h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+  .event-card {
+    background: $background-color;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    max-width: 500px; // Ajusta el ancho máximo de la tarjeta para un diseño más compacto
+    margin: 0 auto; // Centrar la tarjeta en pantallas grandes
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    img {
+      width: 100%; // Se ajustará automáticamente al ancho de la tarjeta
+      max-height: 200px; // Establece la altura máxima para la imagen
+      object-fit: cover; // Recorta la imagen si es demasiado alta, manteniendo proporciones
+      border-radius: 10px;
+    }
+
+    h3 {
+      font-size: 1.3em;
+      margin-top: 15px;
+    }
+
+    .view-event-button {
+      background-color: $secondary-color;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      &:hover {
+        background-color: darken($secondary-color, 10%);
+      }
+    }
+  }
+}
+
+// Testimonios
+.testimonials {
+  padding: 50px 30px;
+  background-color: #f0f0f0;
+  text-align: center;
+
+  blockquote {
+    font-style: italic;
+    font-size: 1.1em;
+    color: $text-color;
+    margin-bottom: 10px;
+  }
+
+  cite {
+    font-size: 0.9em;
+    color: #555;
+  }
+}
+
+// Patrocinadores
+.sponsors {
+  padding: 30px;
+  text-align: center;
+  background-color: $background-color;
+
+  .sponsor-logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    img {
+      width: 100px;
+      margin: 10px;
+      filter: grayscale(80%);
+      transition: filter 0.3s ease;
+      &:hover {
+        filter: grayscale(0%);
+      }
+    }
+  }
+}

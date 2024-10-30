@@ -4,15 +4,17 @@ import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.componen
 import { RecuperarContrasenaComponent } from './recuperar-contrasena/recuperar-contrasena.component';
 import { RecuperarConstrasena2Component } from './recuperar-constrasena-2/recuperar-constrasena-2.component';
 import { RecuperarContrasena3Component } from './recuperar-contrasena-3/recuperar-contrasena-3.component';
+import { PrincipalComponent } from './principal/principal.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'inicio', pathMatch: 'full' },
+    { path: '', redirectTo: 'principal', pathMatch: 'full' },
     { path: 'registro-usuario', component: RegistrarUsuarioComponent },
     { path: 'iniciar-sesion', component: IniciarSesionComponent },
     { path: 'recuperar-contraseña', component: RecuperarContrasenaComponent },
     { path: 'recuperar-contraseña-2', component: RecuperarConstrasena2Component },
     { path: 'recuperar-contraseña-3', component: RecuperarContrasena3Component },
-    { path: '**', redirectTo: 'registro-usuario'}
+    { path: 'principal', component: PrincipalComponent },
+    { path: '**', redirectTo: 'principal'}
 ];
 
 
