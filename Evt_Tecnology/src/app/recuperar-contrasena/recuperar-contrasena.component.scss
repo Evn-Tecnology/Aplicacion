@@ -1,156 +1,284 @@
-/* Contenedor principal */
-.login-container {
-    display: flex;
-    width: 100%;
-    height: 100vh;
+// Variables
+$primary-color: #3b82f6;
+$secondary-color: #3b82f6;
+$background-color: #f3f4f6;
+$text-color: #1f2937;
+$border-color: #e5e7eb;
+$error-color: #ef4444;
+$success-color: #10b981;
+
+// Breakpoints
+$mobile: 640px;
+$tablet: 768px;
+$desktop: 1024px;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+
+// Container Styles
+.recovery-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background-color: $background-color;
+
+  @media (max-width: $tablet) {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* Sección izquierda - Imagen */
-.left-side {
-    width: 50%;
+// Background Section
+.background-section {
+  position: relative;
+  background-image: url('/foto1.png');
+  background-size: cover;
+  background-position: center;
+  
+  @media (max-width: $tablet) {
+    display: none;
+  }
+
 }
 
-.establishment-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+// Form Section
+.form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $spacing-xl;
+  background-color: white;
 }
 
-/* Sección derecha - Formulario */
-.right-side {
-    width: 50%;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
+.form-container {
+  width: 100%;
+  max-width: 480px;
+  position: relative;
 }
 
-.header {
+// Form Step Styles
+.form-step {
+  .header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: $spacing-xl;
+
+    h1 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: $text-color;
+      margin-bottom: $spacing-sm;
+    }
+
+    p {
+      color: #6b7280;
+      font-size: 1rem;
+    }
+  }
 }
 
-.welcome-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: #333;
+// Form Styles
+.recovery-form {
+  .form-group {
+    margin-bottom: $spacing-lg;
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: $text-color;
+      margin-bottom: $spacing-xs;
+    }
+  }
+
+  .input-container {
+    position: relative;
+    
+    i {
+      position: absolute;
+      left: $spacing-md;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #9ca3af;
+    }
+
+    input {
+      width: 90%;
+      padding: $spacing-md;
+      padding-left: 2.75rem;
+      border: 2px solid $border-color;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: all 0.2s;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+      }
+
+      &::placeholder {
+        color: #9ca3af;
+      }
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: $spacing-md;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #9ca3af;
+      cursor: pointer;
+      padding: 0;
+
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
 }
 
-.subtitle {
-    font-size: 16px;
-    color: #666;
-    margin-top: 0;
-}
+// Verification Code Input
+.verification-code {
+  display: flex;
+  gap: $spacing-sm;
+  justify-content: center;
+  margin-bottom: $spacing-lg;
 
-.login-form {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.form-group input {
-    padding: 12px;
-    border: 2px solid #d3d3d3;
-    border-radius: 30px;
-    font-size: 16px;
-    background-color: #edf1fc;
-    outline: none;
-}
-
-.form-group input:focus {
-    border-color: #1a73e8;
-}
-
-.button-container {
-    margin-top: 20px;
+  .code-input {
+    width: 3rem;
+    height: 3rem;
     text-align: center;
+    font-size: 1.25rem;
+    border: 2px solid $border-color;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+    }
+  }
 }
 
-.login-btn {
-    padding: 15px;
-    background-color: #1a73e8;
-    color: white;
+.resend-code {
+  text-align: center;
+  margin-bottom: $spacing-lg;
+  
+  span {
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+
+  .link-btn {
+    background: none;
     border: none;
-    border-radius: 30px;
-    font-size: 16px;
+    color: $primary-color;
+    font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin-left: $spacing-xs;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
-.login-btn:hover {
-    background-color: #0052cc;
+
+
+
+// Contenedor para centrar el botón
+// Contenedor para centrar el botón
+.button-container {
+  display: flex;
+  justify-content: center; // Centra horizontalmente el botón
+  width: 100%; // Asegura que el contenedor ocupa todo el ancho
+  margin-top: $spacing-lg; // Espacio superior opcional
 }
 
-/* Footer */
-.footer {
-    width: 100%;
-    background-color: #2B3555;
-    color: white;
-    text-align: center;
-    padding: 10px 20px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-  }
-  
-  
-  .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-  }
-  
-  .footer-content .brand {
-      font-size: 16px;
-  }
-  
-  .footer-content .icon {
-      font-size: 20px;
-  }
-  
-  .footer-content .contact-info {
-      font-size: 14px;
+// Estilos del botón de enviar
+.submit-btn {
+  padding: 0.75rem 2rem; // Aumenta el padding para hacerlo más grande
+  font-size: 1.2rem; // Aumenta el tamaño de la fuente
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s, transform 0.2s;
+
+  &:hover {
+      background-color: darken($primary-color, 10%);
   }
 
-/* Responsividad */
-@media (max-width: 1024px) {
-    .login-container {
-        flex-direction: column;
-    }
-
-    .left-side {
-        width: 100%;
-        height: 50vh;
-    }
-
-    .right-side {
-        width: 100%;
-        padding: 20px;
-    }
+  &:active {
+      transform: translateY(1px);
+  }
 }
 
-@media (max-width: 768px) {
-    .right-side {
-        padding: 10px;
-    }
 
-    .footer-content {
-        flex-direction: column;
-        gap: 10px;
+
+
+// Progress Indicator
+.progress-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: $spacing-xl;
+
+  .step {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: $border-color;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+
+    &.active {
+      background-color: $primary-color;
+      color: white;
     }
+  }
+
+  .step-line {
+    width: 4rem;
+    height: 2px;
+    background-color: $border-color;
+    transition: all 0.2s;
+
+    &.active {
+      background-color: $primary-color;
+    }
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-step {
+  animation: fadeIn 0.3s ease-out;
 }

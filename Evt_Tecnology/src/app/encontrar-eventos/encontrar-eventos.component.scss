@@ -1,0 +1,439 @@
+// Variables
+$primary-color: #4f46e5;
+$secondary-color: #6366f1;
+$text-color: #1f2937;
+$border-color: #e5e7eb;
+$error-color: #ef4444;
+$success-color: #10b981;
+$background-color: #f9fafb;
+
+
+// Global Styles
+$primary-color: #3b82f6;
+$secondary-color: #1a2540;
+$text-color: #333;
+$background-light: #f9f9f9;
+$font-family: 'Roboto', sans-serif;
+$button-bg: #ffffff; // Color de fondo de los botones
+$button-text: $primary-color; // Color del texto en los botones
+$button-hover-bg: #e0e7ff; // Color de fondo en hover
+$button-hover-text: $secondary-color; // Color del texto en hover
+
+// Navbar
+.navbar {
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $secondary-color;
+    }
+  }
+
+  .nav-links a {
+    font-size: 1.25rem; // Aumenta el tamaño de fuente
+    font-weight: 600; // Aumenta el grosor de la fuente
+    color: $secondary-color; // Ajusta el color (usa el que prefieras)
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s;
+  
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .auth-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .search-input {
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: 1px solid #d1d5db;
+    }
+
+    .btn, .btn-primary {
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .btn {
+      color: $secondary-color;
+    }
+
+    .btn-primary {
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+}
+
+
+// Hero
+.hero {
+  background: linear-gradient(to right, $primary-color, #4b6cb7);
+  color: white;
+  text-align: center;
+  padding: 4rem 0;
+  position: relative;
+
+  .hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .btn-primary {
+      background-color: $button-bg;
+      color: $primary-color;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+
+      &:hover {
+        background-color: $button-hover-bg;
+        color: $button-hover-text;
+      }
+    }
+  }
+
+  // Sombra difuminada en la parte inferior del fondo
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.5), transparent);
+  }
+}
+
+
+
+// Variables
+$primary-color: #4f46e5;
+$secondary-color: #818cf8;
+$background-color: #f3f4f6;
+$text-color: #1f2937;
+$border-color: #e5e7eb;
+$shadow-color: rgba(0, 0, 0, 0.1);
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin transition {
+  transition: all 0.3s ease;
+}
+
+// Container
+.event-search-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: $background-color;
+}
+
+// Sidebar Filter
+.sidebar-filter {
+  width: 300px;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: 2px 0 5px $shadow-color;
+  overflow-y: auto;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: $text-color;
+  }
+
+  .filter-section {
+    margin-bottom: 2rem;
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: $text-color;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Checkbox and Radio styles
+.checkbox-container, .radio-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark, .radio-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    @include transition;
+  }
+
+  .radio-checkmark {
+    border-radius: 50%;
+  }
+
+  &:hover input ~ .checkmark,
+  &:hover input ~ .radio-checkmark {
+    background-color: #ccc;
+  }
+
+  input:checked ~ .checkmark,
+  input:checked ~ .radio-checkmark {
+    background-color: $primary-color;
+  }
+
+  .checkmark:after,
+  .radio-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  input:checked ~ .checkmark:after,
+  input:checked ~ .radio-checkmark:after {
+    display: block;
+  }
+
+  .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+
+  .radio-checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+}
+
+// Apply Filters Button
+.apply-filters-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  @include transition;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// Main Content
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+// Search Header
+.search-header {
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: $text-color;
+  }
+}
+
+// Search Bar
+.search-bar {
+  display: flex;
+  max-width: 600px;
+
+  input {
+    flex: 1;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid $border-color;
+    border-right: none;
+    border-radius: 0.25rem 0 0 0.25rem;
+    @include transition;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+
+  .search-btn {
+    padding: 0.75rem 1rem;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 0 0.25rem 0.25rem 0;
+    cursor: pointer;
+    @include transition;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+// Event List
+.event-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+// Event Card
+.event-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px $shadow-color;
+  @include transition;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px $shadow-color;
+  }
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .event-info {
+    padding: 1rem;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: $text-color;
+    }
+
+    .event-date, .event-location {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 0.25rem;
+    }
+
+    .event-category, .event-price {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.8rem;
+      border-radius: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .event-category {
+      background-color: $secondary-color;
+      color: white;
+      margin-right: 0.5rem;
+    }
+
+    .event-price {
+      background-color: #10b981;
+      color: white;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .event-search-container {
+    flex-direction: column;
+  }
+
+  .sidebar-filter {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+
+  .event-list {
+    grid-template-columns: 1fr;
+  }
+}

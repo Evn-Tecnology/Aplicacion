@@ -1,0 +1,145 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <img src="logo.png" alt="TechConnect" class="logo-img">
+      <span class="logo-text">TechConnect</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Encontrar eventos</a>
+      <a routerLink = "/crear-evento" >Crear eventos</a>
+    </div>
+    <div class="auth-section">
+      <input type="text" placeholder="Buscar eventos..." class="search-input">
+      <button class="btn" routerLink = "/iniciar-sesion" >Iniciar Sesión</button>
+      <button class="btn-primary" routerLink = "/registro-usuario" >Registrarse</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>Conecta con la Comunidad Tech</h1>
+    <p>Descubre eventos tecnológicos únicos y conéctate con profesionales del sector</p>
+    <button class="btn-primary">Explorar Eventos</button>
+  </div>
+</header>
+
+<!-- Create Event Form -->
+<div class="create-event-container">
+  <h1 class="page-title">Crear nuevo evento</h1>
+  
+  <form class="event-form">
+    <div class="form-grid">
+      <!-- Left Column -->
+      <div class="form-column">
+        <div class="form-section">
+          <h2>Detalles básicos</h2>
+          
+          <div class="form-group">
+            <label for="eventName">Nombre del evento</label>
+            <input type="text" id="eventName" name="eventName">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="startDate">Fecha de inicio</label>
+              <input type="date" id="startDate" name="startDate">
+            </div>
+            <div class="form-group">
+              <label for="endDate">Fecha de término</label>
+              <input type="date" id="endDate" name="endDate">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="startTime">Hora de inicio</label>
+              <input type="time" id="startTime" name="startTime">
+            </div>
+            <div class="form-group">
+              <label for="endTime">Hora de término</label>
+              <input type="time" id="endTime" name="endTime">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Ubicación</label>
+            <input type="text" id="location" name="location">
+          </div>
+
+          <div class="form-group">
+            <label for="category">Categoría</label>
+            <select id="category" name="category">
+              <option value="">Seleccionar categoría</option>
+              <option value="IA">Inteligencia Artificial</option>
+              <option value="ciber">Ciberseguridad</option>
+              <option value="bigData">BigData y Anlisis de Datos</option>
+              <option value="other">Otro</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Visibilidad del evento</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="visibility" value="public">
+                Público
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="visibility" value="private">
+                Privado
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="form-column">
+        <div class="form-section">
+          <h2>Información adicional</h2>
+          
+          <div class="form-group">
+            <label for="description">Descripción del evento</label>
+            <textarea id="description" name="description" rows="6"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Imágenes del evento</label>
+            <div class="image-upload-container">
+              <input type="file" id="eventImages" multiple accept="image/*" class="hidden-input">
+              <div class="upload-placeholder">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Haz clic para subir imágenes</p>
+              </div>
+            </div>
+            <div class="image-preview">
+              <!-- Image previews will be added here -->
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Precio</label>
+            <div class="price-options">
+              <label class="radio-label">
+                <input type="radio" name="priceType" value="free">
+                Libre inscripción
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="priceType" value="paid">
+                Pago
+              </label>
+            </div>
+            <input type="number" name="price" placeholder="Ingrese el monto" class="price-input">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          Publicar evento
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

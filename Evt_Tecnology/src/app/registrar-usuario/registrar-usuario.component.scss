@@ -1,200 +1,291 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #f7f7f7;
+// Color variables
+$primary-color: #3b82f6;
+$secondary-color: #3b82f6;
+$text-color: #1f2937;
+$border-color: #e5e7eb;
+$error-color: #ef4444;
+$success-color: #10b981;
+$background-color: #f9fafb;
+
+// Breakpoints
+$mobile: 640px;
+$tablet: 768px;
+$desktop: 1024px;
+$wide: 1280px;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+
+// Typography
+$font-family: system-ui, -apple-system, sans-serif;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+
+// Border radius
+$border-radius-sm: 0.25rem;
+$border-radius-md: 0.375rem;
+$border-radius-lg: 0.5rem;
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+.register-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+
+  @media (max-width: $tablet) {
+    grid-template-columns: 1fr;
+  }
 }
 
-.login-container {
-    display: flex;
-    width: 100%;
-    height: 100vh;
-}
-
-/* Left Side - Imagen del Establecimiento */
-.left-side {
-    width: 50%;
-}
-
-.left-side .establishment-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Right Side - Formulario de Registro */
-.right-side {
-    width: 50%;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    position: relative;
-    box-shadow: -10px 0 15px rgba(0, 0, 0, 0.1);
-}
-
-.form-icon {
-  width: 80px; /* Ajusta el tamaño según sea necesario */
-  display: block;
-  margin: 0 auto 20px auto; /* Centra la imagen y añade espacio debajo */
-}
-
-.header {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-.welcome-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: #333;
-}
-
-.subtitle {
-    font-size: 16px;
-    color: #666;
-}
-
-.login-form {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.form-group input {
-    padding: 10px;
-    border: 2px solid #d3d3d3;
-    border-radius: 30px;
-    font-size: 16px;
-    outline: none;
-    transition: border 0.3s ease;
-}
-
-.form-group input:focus {
-    border-color: #1a73e8;
-}
-
-.checkbox-group {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    color: #666;
-}
-
-.checkbox-group input {
-    margin-right: 5px;
-}
-
-.login-btn {
-    padding: 12px;
-    background-color: #1a73e8;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.login-btn:hover {
-    background-color: #0052cc;
-}
-
-.register-text {
-    font-size: 14px;
-    color: #333;
-    margin-top: 20px;
-}
-
-.register-text a {
-    color: #1a73e8;
-    text-decoration: none;
-}
-
-.register-text a:hover {
-    text-decoration: underline;
-}
-
-.login-container {
-    flex: 1; /* Empuja el footer hacia abajo si el contenido es insuficiente */
-}
-
-/* Footer */
-.footer {
-  width: 100%;
-  background-color: #2B3555;
+// Hero Section
+.hero-section {
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl;
   color: white;
-  text-align: center;
-  padding: 10px 20px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
+
+  
+  @media (max-width: $tablet) {
+    display: none;
+  }
+
+
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 500px;
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: $spacing-lg;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: $font-size-lg;
+      opacity: 0.9;
+    }
+  }
 }
 
+// Form Section
+.form-section {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
 
-.footer-content {
+.form-container {
+  flex: 1;
+  padding: $spacing-xl;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+
+  .header {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+
+    .logo-container {
+      margin-bottom: $spacing-lg;
+
+      .logo {
+        height: 48px;
+        width: auto;
+      }
+    }
+
+    h1 {
+      font-size: $font-size-2xl;
+      font-weight: 700;
+      color: $text-color;
+      margin-bottom: $spacing-sm;
+    }
+
+    p {
+      color: #6b7280;
+    }
+  }
+}
+
+// Form Styles
+.register-form {
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: $spacing-md;
+
+    @media (max-width: $mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form-group {
+    margin-bottom: $spacing-lg;
+
+    label {
+      display: block;
+      font-size: $font-size-sm;
+      font-weight: 500;
+      color: $text-color;
+      margin-bottom: $spacing-xs;
+    }
+  }
+
+  .input-container {
+    position: relative;
+    margin: 0 0.5rem;
+
+    i {
+      position: absolute;
+      left: $spacing-md;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #9ca3af;
+    }
+
+    input {
+      width: 100%;
+      padding: $spacing-md;
+      padding-left: 2.75rem;
+      border: 1px solid $border-color;
+      border-radius: $border-radius-lg;
+      font-size: $font-size-base;
+      transition: all 0.2s;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+      }
+
+      &::placeholder {
+        color: #9ca3af;
+      }
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: $spacing-md;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #9ca3af;
+      cursor: pointer;
+      padding: 0;
+
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
+}
+
+// Terms Checkbox
+.terms-group {
+  margin-bottom: $spacing-lg;
+
+  .checkbox-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap: $spacing-sm;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+      margin-top: 0.25rem;
+    }
+
+    .terms-text {
+      font-size: $font-size-sm;
+      color: #6b7280;
+    }
+  }
 }
 
-.footer-content .brand {
-    font-size: 16px;
+// Submit Button
+.submit-btn {
+  width: 100%;
+  padding: $spacing-md;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: $border-radius-lg;
+  font-size: $font-size-base;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: darken($primary-color, 5%);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
 }
 
-.footer-content .icon {
-    font-size: 20px;
+// Auth Links
+.auth-links {
+  text-align: center;
+  margin-top: $spacing-lg;
+
+  p {
+    color: #6b7280;
+    font-size: $font-size-sm;
+  }
 }
 
-.footer-content .contact-info {
-    font-size: 14px;
+// Links
+.link {
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
+// Footer
+.footer {
+  padding: $spacing-md;
+  border-top: 1px solid $border-color;
+  margin-top: auto;
 
-/* Responsividad */
-@media (max-width: 1024px) {
-    .login-container {
-        flex-direction: column;
+  .footer-content {
+    text-align: center;
+    color: #6b7280;
+    font-size: $font-size-sm;
+
+    .brand {
+      font-weight: 600;
     }
 
-    .left-side {
-        width: 100%;
-        height: 50vh;
+    .divider {
+      margin: 0 $spacing-sm;
     }
-
-    .right-side {
-        width: 100%;
-        padding: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .right-side {
-        padding: 10px;
-    }
-
-    .login-form {
-        width: 90%;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 10px;
-    }
+  }
 }

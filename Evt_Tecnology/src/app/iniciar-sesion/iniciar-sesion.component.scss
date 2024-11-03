@@ -1,206 +1,257 @@
-/* Contenedor principal */
+// Color variables
+$primary-color: #3b82f6;
+$secondary-color: #3b82f6;
+$text-color: #1f2937;
+$border-color: #e5e7eb;
+$error-color: #ef4444;
+$success-color: #10b981;
+$background-color: #f3f4f6;
+
+// Breakpoints
+$mobile: 640px;
+$tablet: 768px;
+$desktop: 1024px;
+$wide: 1280px;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+
+// Typography
+$font-family: 'Poppins', sans-serif;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+
+// Border radius
+$border-radius-sm: 0.25rem;
+$border-radius-md: 0.375rem;
+$border-radius-lg: 0.5rem;
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+body {
+  font-family: $font-family;
+  background-color: $background-color;
+  color: $text-color;
+}
+
 .login-container {
-    display: flex;
-    width: 100%;
-    height: 100vh;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Sección izquierda - Imagen */
-.left-side {
-    width: 50%;
+// Form Section
+.form-section {
+  width: 100%;
+  max-width: 450px;
+  padding: $spacing-xl;
 }
 
-.establishment-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.form-container {
+  background-color: white;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-lg;
+  padding: $spacing-xl;
 
-/* Sección derecha - Formulario */
-.right-side {
-    width: 50%;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-}
-
-.header {
+  .header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: $spacing-xl;
+
+    .icon-container {
+      margin-bottom: $spacing-lg;
+      
+      i {
+        font-size: 3rem;
+        color: $primary-color;
+      }
+    }
+
+    h1 {
+      font-size: $font-size-2xl;
+      font-weight: 700;
+      color: $text-color;
+      margin-bottom: $spacing-sm;
+    }
+
+    p {
+      color: #6b7280;
+      font-size: $font-size-sm;
+    }
+  }
 }
 
-.welcome-title {
-    font-size: 28px;
-    font-weight: bold;
-    color: #333;
-}
-
-.subtitle {
-    font-size: 16px;
-    color: #666;
-    margin-top: 0;
-}
-
-.form-icon {
-    width: 50px; /* Ajusta el tamaño del icono según sea necesario */
-    display: block;
-    margin: 0 auto 20px auto; /* Centra la imagen y añade espacio debajo */
-}
-
+// Form Styles
 .login-form {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+  .form-group {
+    margin-bottom: $spacing-lg;
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
+    label {
+      display: block;
+      font-size: $font-size-sm;
+      font-weight: 600;
+      color: $text-color;
+      margin-bottom: $spacing-xs;
+    }
+  }
 
-.form-group label {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 5px;
-}
+  .input-container {
+    position: relative;
+    
+    input {
+        width: 100%;
+        max-width: 90%; // Asegura que no se extienda más allá de su contenedor
+        padding: $spacing-md $spacing-md; // Ajusta el padding para que no sea tan grande
+        border: 2px solid $border-color;
+        border-radius: $border-radius-lg;
+        font-size: $font-size-base;
+        transition: all 0.3s ease;
+      
+        &:focus {
+            outline: none;
+            border-color: $primary-color;
+            box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+        }
 
-.form-group input {
-    padding: 12px;
-    border: 2px solid #d3d3d3;
-    border-radius: 30px;
-    font-size: 16px;
-    background-color: #edf1fc;
-    outline: none;
-}
+        &::placeholder {
+            color: #9ca3af;
+        }
+    }
 
-.form-group input:focus {
-    border-color: #1a73e8;
+
+
+    .toggle-password {
+      position: absolute;
+      right: $spacing-md;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #9ca3af;
+      cursor: pointer;
+      padding: 0;
+
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
 }
 
 .forgot-password {
-    text-align: right;
-    color: #1a73e8;
-    font-size: 14px;
+  text-align: right;
+  margin-bottom: $spacing-lg;
 }
 
-.forgot-password a {
-    color: #1a73e8;
-    text-decoration: none;
-}
+// Submit Button
+.submit-btn {
+  width: 100%;
+  padding: $spacing-md;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: $border-radius-lg;
+  font-size: $font-size-base;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-sm;
 
-.forgot-password a:hover {
-    text-decoration: underline;
-}
-
-.button-container {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.login-btn {
-    padding: 15px;
-    background-color: #1a73e8;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.login-btn:hover {
-    background-color: #0052cc;
-}
-
-.register-text {
-    font-size: 14px;
-    color: #333;
-    margin-top: 20px;
-    text-align: center;
-}
-
-.register-text a {
-    color: #1a73e8;
-    text-decoration: none;
-}
-
-.register-text a:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
-.footer {
-    width: 100%;
-    background-color: #2B3555;
-    color: white;
-    text-align: center;
-    padding: 10px 20px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-}
-
-/* Footer */
-.footer {
-    width: 100%;
-    background-color: #2B3555;
-    color: white;
-    text-align: center;
-    padding: 10px 20px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+  i {
+    font-size: $font-size-lg;
   }
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+// Auth Links
+.auth-links {
+  text-align: center;
+  margin-top: $spacing-xl;
   
+  p {
+    color: #6b7280;
+    font-size: $font-size-sm;
+  }
+}
+
+// Links
+.link {
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
   
+  &:hover {
+    color: darken($primary-color, 15%);
+    text-decoration: underline;
+  }
+}
+
+// Footer
+.footer {
+  margin-top: $spacing-xl;
+  text-align: center;
+
   .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-  }
-  
-  .footer-content .brand {
-      font-size: 16px;
-  }
-  
-  .footer-content .icon {
-      font-size: 20px;
-  }
-  
-  .footer-content .contact-info {
-      font-size: 14px;
-  }
-  
+    color: #6b7280;
+    font-size: $font-size-sm;
 
-/* Responsividad */
-@media (max-width: 1024px) {
-    .login-container {
-        flex-direction: column;
+    .brand {
+      font-weight: 600;
+      color: $primary-color;
     }
 
-    .left-side {
-        width: 100%;
-        height: 50vh;
+    .divider {
+      margin: 0 $spacing-sm;
     }
-
-    .right-side {
-        width: 100%;
-        padding: 20px;
-    }
+  }
 }
 
-@media (max-width: 768px) {
-    .right-side {
-        padding: 10px;
-    }
+// Fondo de la página
+.login-container {
+  background: linear-gradient(135deg, #3b82f6, #6a67ce); // Fondo degradado
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: $spacing-lg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .footer-content {
-        flex-direction: column;
-        gap: 10px;
-    }
+// Animations
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.fa-spin {
+  animation: spin 2s linear infinite;
 }

@@ -1,79 +1,107 @@
+<!-- Navbar -->
 <nav class="navbar">
-    <div class="navbar-logo">
-      <img src="landing2.png" alt="TechConnect Logo">
-      <span>TechConnect</span>
+  <div class="container">
+    <div class="logo">
+      <img src="logo.png" alt="TechConnect" class="logo-img">
+      <span class="logo-text">TechConnect</span>
     </div>
-    <ul class="navbar-links">
-      <li><a href="#">Encontrar eventos</a></li>
-      <li><a href="#">Crear eventos</a></li>
-    </ul>
-    <div class="navbar-search">
-      <input type="text" placeholder="Buscar...">
-      <button type="button"><i class="search-icon"></i></button>
+    <div class="nav-links">
+      <a routerLink = "/encontrar-evento">Encontrar eventos</a>
+      <a routerLink = "/crear-evento" >Crear eventos</a>
     </div>
-    <div class="navbar-auth">
-      <a routerLink = "/iniciar-sesion">INICIAR SESION</a>
-      <a routerLink = "/registro-usuario">REGISTRARSE</a>
+    <div class="auth-section">
+      <input type="text" placeholder="Buscar eventos..." class="search-input">
+      <button class="btn" routerLink = "/iniciar-sesion" >Iniciar Sesión</button>
+      <button class="btn-primary" routerLink = "/registro-usuario" >Registrarse</button>
     </div>
-  </nav>
-  
-
-<div class="landing-container">
-    <header class="hero-section">
-      <div class="hero-text">
-    
-      </div>
-    </header>
-  
-    <section class="benefits-section">
-      <h2>¿Por qué asistir?</h2>
-      <div class="benefits">
-        <div class="benefit">
-          <img src="foto1.png" alt="Expertos">
-          <h3>Aprende de expertos</h3>
-          <p>Conoce las mentes más brillantes del mundo tecnológico.</p>
-        </div>
-        <div class="benefit">
-          <img src="foto1.png" alt="Networking">
-          <h3>Networking profesional</h3>
-          <p>Conéctate con otros profesionales del sector.</p>
-        </div>
-        <div class="benefit">
-          <img src="foto1.png" alt="Tecnología">
-          <h3>Acceso a tecnología</h3>
-          <p>Descubre las últimas innovaciones en el sector.</p>
-        </div>
-      </div>
-    </section>
-  
-    <section class="upcoming-events">
-      <h2>Próximos Eventos</h2>
-      <div class="event-card">
-        <img src="eventos-tecnológicos1.jpg" alt="Evento 1">
-        <h3>Nombre del Evento</h3>
-        <p>Fecha: 12 Nov 2024</p>
-        <p>Ubicación: Trujillo</p>
-        <a href="#" class="view-event-button">Ver evento</a>
-      </div>
-    </section>
-  
-    <section class="testimonials">
-      <h2>Lo que dicen nuestros asistentes</h2>
-      <blockquote>
-        "Un evento increíble que me permitió conocer lo último en tecnología."
-        <cite>- María López</cite>
-      </blockquote>
-    </section>
-  
-    <footer class="sponsors">
-      <h2>Patrocinadores</h2>
-      <div class="sponsor-logos">
-        <img src="franco.png" alt="Patrocinador 1">
-        <img src="carlos.png" alt="Patrocinador 2">
-        <img src="melissa.png" alt="Patrocinador 2">
-        <img src="sergio.png" alt="Patrocinador 2">
-        <img src="angelo.png" alt="Patrocinador 2">
-      </div>
-    </footer>
   </div>
-  
+</nav>
+
+<!-- Hero Section -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>Conecta con la Comunidad Tech</h1>
+    <p>Descubre eventos tecnológicos únicos y conéctate con profesionales del sector</p>
+    <button class="btn-primary">Explorar Eventos</button>
+  </div>
+</header>
+
+<!-- Benefits Section -->
+<section class="benefits">
+  <h2>¿Por qué asistir?</h2>
+  <div class="benefits-cards">
+    <div class="benefit-card">
+      <img src="icon-expert.png" alt="Expert Icon" class="icon">
+      <h3>Aprende de expertos</h3>
+      <p>Conoce las mentes más brillantes del mundo tecnológico</p>
+    </div>
+    <div class="benefit-card">
+      <img src="icon-network.png" alt="Network Icon" class="icon">
+      <h3>Networking profesional</h3>
+      <p>Conéctate con otros profesionales del sector</p>
+    </div>
+    <div class="benefit-card">
+      <img src="icon-tech.png" alt="Tech Icon" class="icon">
+      <h3>Acceso a tecnología</h3>
+      <p>Descubre las últimas innovaciones en el sector</p>
+    </div>
+  </div>
+</section>
+
+<!-- Events Section -->
+<section class="events">
+  <h2>Próximos Eventos</h2>
+  <div class="event-cards">
+    <div class="event-card">
+      <img src="eventos-tecnológicos1.jpg" alt="Event" class="event-img">
+      <h3>DevTech Conference 2024</h3>
+      <p>12 Nov 2024 • Trujillo</p>
+      <button class="btn-primary">Ver evento</button>
+    </div>
+
+    <div class="event-card">
+      <img src="eventos-tecnológicos1.jpg" alt="Event" class="event-img" />
+      <div class="event-content">
+        <h3>TechConnect Meetup</h3>
+        <p>18 Nov 2024 • Lima</p>
+        <button class="btn-primary">Ver evento</button>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <img src="eventos-tecnológicos1.jpg" alt="Event" class="event-img">
+      <h3>TechConnect Meetup</h3>
+      <p>18 Nov 2024 • Lima</p>
+      <button class="btn-primary">Ver evento</button>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+  <h2>Lo que dicen nuestros asistentes</h2>
+  <div class="testimonial-cards">
+    <div class="testimonial-card">
+      <p>"Un evento increíble que me permitió conocer lo último en tecnología."</p>
+      <h4>María López</h4>
+      <span>Frontend Developer</span>
+    </div>
+    <div class="testimonial-card">
+      <p>"La mejor experiencia de networking que he tenido en mi carrera profesional."</p>
+      <h4>Carlos Ruiz</h4>
+      <span>CTO</span>
+    </div>
+  </div>
+</section>
+
+<!-- Sponsors Section -->
+<footer class="sponsors">
+  <h2>Patrocinadores</h2>
+  <div class="sponsor-logos">
+    <div class="sponsor-logo"><img src="franco.png" alt="Sponsor"></div>
+    <div class="sponsor-logo"><img src="melissa.png" alt="Sponsor"></div>
+    <div class="sponsor-logo"><img src="sergio.png" alt="Sponsor"></div>
+    <div class="sponsor-logo"><img src="carlos.png" alt="Sponsor"></div>
+    <div class="sponsor-logo"><img src="angelo.png" alt="Sponsor"></div>
+  </div>
+</footer>

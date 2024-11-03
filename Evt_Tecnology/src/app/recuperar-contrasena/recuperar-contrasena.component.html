@@ -1,36 +1,108 @@
-<div class="login-container">
-    <!-- Sección izquierda con la imagen -->
-    <div class="left-side">
-        <img src="foto1.png" alt="Imagen de recuperación" class="establishment-image">
-    </div>
-  
-    <!-- Sección derecha con el formulario -->
-    <div class="right-side">
-        <div class="header">
-            <h1 class="welcome-title">Recuperación de contraseña</h1>
-            <p class="subtitle">Por favor introduce tu dirección de correo electrónico</p>
-        </div>
-  
-        <!-- Formulario de recuperación de contraseña -->
-        <form class="login-form" method="POST">
-            <div class="form-group">
-                <label for="email">Correo electrónico</label>
-                <input type="email" id="email" name="userEmail" placeholder="Ingresa tu correo" required>
-            </div>
-  
-            <!-- Botón Enviar -->
-            <div class="form-group button-container">
-                <button type="submit" class="login-btn" routerLink = "/recuperar-contraseña-2">Enviar</button>
-            </div>
-        </form>
-    </div>
-  
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <span class="brand">TechConnect</span>
-            <span class="contact-info">Contáctanos +51 895 678 456</span>
-        </div>
-    </footer>
+<div class="recovery-container">
+  <div class="background-section">
+      <div class="overlay"></div>
   </div>
-  
+
+  <div class="form-section">
+      <div class="form-container">
+          <!-- Paso 1: Ingreso de correo -->
+          <div class="form-step" *ngIf="currentStep === 1">
+              <div class="header">
+                  <h1>Recuperación de contraseña</h1>
+                  <p>Por favor introduce tu dirección de correo electrónico</p>
+              </div>
+
+              <form class="recovery-form">
+                  <div class="form-group">
+                      <label for="email">Correo electrónico</label>
+                      <div class="input-container">
+                          <i class="fas fa-envelope"></i>
+                          <input type="email" id="email" placeholder="Ingresa tu correo" required>
+                      </div>
+                  </div>
+
+                  <div class="button-container">
+                      <button type="submit" class="submit-btn" (click)="nextStep()">
+                          <span>Enviar</span>
+                          <i class="fas fa-arrow-right"></i>
+                      </button>
+                  </div>
+              </form>
+          </div>
+
+          <!-- Paso 2: Código de verificación -->
+          <div class="form-step" *ngIf="currentStep === 2">
+              <div class="header">
+                  <h1>Verificación</h1>
+                  <p>Ingresa el código de 6 dígitos que enviamos a tu correo</p>
+              </div>
+
+              <form class="recovery-form">
+                  <div class="verification-code">
+                      <input type="text" maxlength="1" class="code-input" *ngFor="let _ of [1,2,3,4,5,6]">
+                  </div>
+
+                  <div class="resend-code">
+                      <span>¿No recibiste el código?</span>
+                      <button type="button" class="link-btn">Reenviar código</button>
+                  </div>
+
+                  <div class="button-container">
+                      <button type="submit" class="submit-btn" (click)="nextStep()">
+                          <span>Verificar</span>
+                          <i class="fas fa-lock"></i>
+                      </button>
+                  </div>
+              </form>
+          </div>
+
+          <!-- Paso 3: Nueva contraseña -->
+          <div class="form-step" *ngIf="currentStep === 3">
+              <div class="header">
+                  <h1>Nueva contraseña</h1>
+                  <p>Crea una nueva contraseña segura</p>
+              </div>
+
+              <form class="recovery-form">
+                  <div class="form-group">
+                      <label for="new-password">Nueva contraseña</label>
+                      <div class="input-container">
+                          <i class="fas fa-lock"></i>
+                          <input type="password" id="new-password" placeholder="Ingresa tu nueva contraseña" required>
+                          <button type="button" class="toggle-password">
+                              <i class="fas fa-eye"></i>
+                          </button>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="confirm-password">Confirmar contraseña</label>
+                      <div class="input-container">
+                          <i class="fas fa-lock"></i>
+                          <input type="password" id="confirm-password" placeholder="Confirma tu nueva contraseña" required>
+                          <button type="button" class="toggle-password">
+                              <i class="fas fa-eye"></i>
+                          </button>
+                      </div>
+                  </div>
+
+                  <div class="button-container">
+                      <button type="submit" class="submit-btn">
+                          <span>Guardar cambios</span>
+                          <i class="fas fa-check"></i>
+                      </button>
+                  </div>
+              </form>
+          </div>
+
+          <!-- Indicador de progreso -->
+          <div class="progress-indicator">
+              <div class="step" [class.active]="currentStep >= 1">1</div>
+              <div class="step-line" [class.active]="currentStep >= 2"></div>
+              <div class="step" [class.active]="currentStep >= 2">2</div>
+              <div class="step-line" [class.active]="currentStep >= 3"></div>
+              <div class="step" [class.active]="currentStep >= 3">3</div>
+          </div>
+      </div>
+  </div>
+</div>

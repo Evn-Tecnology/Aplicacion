@@ -1,0 +1,18 @@
+<div *ngIf="evento">
+    <h1>{{ evento.nombre }}</h1>
+    <p><strong>Fecha:</strong> {{ evento.fecha }}</p>
+    <p><strong>Ubicación:</strong> {{ evento.lugar }}</p>
+    <p><strong>Categoría:</strong> {{ evento.categoria }}</p>
+    <p><strong>Precio:</strong> {{ evento.precio }}</p>
+  
+    <div class="event-details">
+      <img src="eventos-tecnológicos1.jpg" alt="Imagen del evento {{ evento.nombre }}">
+    </div>
+  
+    <button routerLink="/encontrar-eventos">Volver a la lista de eventos</button>
+  </div>
+  
+  <div *ngIf="!evento">
+    <p>Evento no encontrado.</p>
+  </div>
+  
