@@ -1,185 +1,93 @@
-/* Container Styles */
-.create-event-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
-  color: #333;
-}
-
-.create-event-container nav {
-  font-size: 14px;
-  color: #000000;
-  margin-bottom: 10px;
-}
-
-.create-event-container h2 {
-  font-size: 24px;
+/* Hero */
+.hero {
+  background-image: url('https://www.muycomputerpro.com/wp-content/uploads/2020/01/escenario.jpeg'); /* Ruta de la imagen en la carpeta assets */
+  background-size: cover; /* Asegura que la imagen cubra toda el área */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  color: white;
   text-align: center;
-  margin-bottom: 20px;
-  color: #000;
-  font-weight: bold;
+  padding: 4rem 0;
+  position: relative;
+  font-family: var(--font-family);
 }
 
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.event-list {
+  max-width: 1000px; /* Aumenta el ancho */
+  margin: 0 auto;
+  padding: 30px; /* Aumenta el padding */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
 }
 
-.form-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+.event-list h1 {
+  text-align: center;
+  font-size: 32px; /* Aumenta el tamaño de la fuente */
+  margin-bottom: 25px;
+  color: #333;
 }
 
-.form-group {
-  flex: 1;
-  min-width: 200px;
-}
-
-.full-width {
-  flex: 100%;
-}
-
-.col-md-auto {
-  flex: 0 0 auto;
-}
-
-/* Labels */
-label {
-  font-size: 14px;
-  font-weight: bold;
-  color: #000;
-  margin-bottom: 5px;
-}
-
-/* Input and Textarea Styles */
-input[type="text"],
-input[type="number"],
-input[type="date"],
-input[type="time"],
-textarea,
-select {
+/* Styling for the table */
+table {
   width: 100%;
-  padding: 8px;
-  border: 2px solid #2319d2;
-  border-radius: 20px;
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.3s ease;
+  border-collapse: collapse;
+  font-size: 18px; /* Aumenta el tamaño de la fuente */
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #0c1b80;
-  box-shadow: 0 0 5px rgba(35, 25, 210, 0.5);
+thead {
+  background-color: #007bff; /* Cambia el color a azul */
+  color: white;
 }
 
-textarea {
-  resize: none;
+thead th {
+  padding: 16px; /* Aumenta el padding */
+  text-align: left;
+  font-weight: bold; /* Hace el texto más grueso */
 }
 
-small {
-  font-size: 12px;
-  color: #666;
-  text-align: right;
-  display: block;
+tbody tr {
+  border-bottom: 1px solid #ddd;
 }
 
-/* Radio Button Group Styles */
-.custom-radio-row {
-  gap: 20px;
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
-.form-check {
-  display: flex;
-  align-items: center;
-}
-
-.form-check-input {
-  margin-right: 5px;
-}
-
-.form-check-label {
-  font-size: 14px;
+/* Styling for table cells */
+td {
+  padding: 16px; /* Aumenta el padding */
+  text-align: left;
   color: #333;
 }
 
-/* Terms and Conditions */
-.terms-section {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: #333;
-}
-
-.terms-section input[type="checkbox"] {
-  margin-right: 8px;
-}
-
-.terms-section a {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-/* Button Styles */
-.button-group {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-
-.create-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background: #0056b3;
-  color: #fff;
+/* Styling for the delete button */
+button {
+  padding: 8px 16px; /* Aumenta el tamaño del botón */
+  color: white;
+  background-color: #ff4d4d;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
+  font-size: 16px; /* Aumenta el tamaño de la fuente del botón */
   cursor: pointer;
-  transition: background 0.3s;
-  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
-.create-button:hover {
-  background: #004299;
+button:hover {
+  background-color: #ff1a1a;
 }
 
-.column-right {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: flex-end; /* Alinea los elementos dentro de la columna a la derecha */
-}
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+  .event-list {
+    padding: 15px; /* Ajusta el padding en pantallas pequeñas */
+  }
 
-.participants-section {
-  margin-top: 20px;
-}
+  table {
+    font-size: 16px; /* Ajusta el tamaño de la fuente en pantallas pequeñas */
+  }
 
-.participants-section h3 {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.participant-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  font-size: 16px;
-  color: #555;
-}
-
-.participant-list span {
-  display: inline-block;
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f7f7f7;
-  min-width: 150px;
-  text-align:center;
+  button {
+    padding: 6px 12px; /* Ajusta el tamaño del botón en pantallas pequeñas */
+    font-size: 14px;
+  }
 }

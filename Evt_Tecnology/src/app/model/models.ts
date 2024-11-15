@@ -44,9 +44,9 @@ export interface EventRequest {
   eventNombre: string;
   categoriaEvento: string;
   eventDescripcion: string;
-  eventFecha: Date;
+  eventFecha: string;
   eventHora: string;
-  eventFechaFin?: Date;
+  eventFechaFin?: string;
   eventLugar: string;
   capacidad: number;
   esPagado: boolean;
@@ -56,7 +56,7 @@ export interface EventRequest {
 
 export interface EventResponse {
   id: number;
-  eventNombre: string;
+  event_nombre: string;
   categoriaEvento: string;
   eventDescripcion: string;
   eventFecha: string;
@@ -67,6 +67,6 @@ export interface EventResponse {
   esPagado: boolean;
   precio?: number;
   tipoEvento: string;
-  message: string;
+  organizadorPrincipal: string;
 }
 

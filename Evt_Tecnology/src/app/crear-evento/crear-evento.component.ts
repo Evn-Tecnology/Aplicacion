@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {Router, RouterLink} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { EventService } from '../service/event.service';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {ServiceService} from "../service/service.service";
-import {HeaderLogComponent} from "../header-log/header-log.component";
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+import { ServiceService } from "../service/service.service";
+import { HeaderLogComponent } from "../header-log/header-log.component";
 
 @Component({
   selector: 'app-crear-evento',
@@ -13,10 +13,11 @@ import {HeaderLogComponent} from "../header-log/header-log.component";
   templateUrl: './crear-evento.component.html',
   styleUrls: ['./crear-evento.component.css'],
 })
-export class CrearEventoComponent implements OnInit{
+export class CrearEventoComponent implements OnInit {
   createEventForm: FormGroup;
-  isPaid: boolean = false; // Controla la visibilidad del campo de monto
+  isPaid: boolean = false;
   categories: string[] = [];
+  organizadorId: number | null = null;  // Variable para almacenar el ID del usuario logueado
 
   constructor(
     private fb: FormBuilder,
@@ -24,7 +25,6 @@ export class CrearEventoComponent implements OnInit{
     private router: Router,
     private service: ServiceService
   ) {
-    // Inicialización del formulario con FormBuilder y validadores
     this.createEventForm = this.fb.group({
       eventNombre: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
       eventDescripcion: ['', Validators.required],
@@ -34,36 +34,42 @@ export class CrearEventoComponent implements OnInit{
       eventLugar: ['', Validators.required],
       categoriaEvento: ['', Validators.required],
       tipoEvento: ['', Validators.required],
-      esPagado: [false], // Inicialmente es gratuito
-      precio: [{ value: null, disabled: true }], // Deshabilitado si es gratuito
+      esPagado: [false],
+      precio: [{ value: null, disabled: true }],
       capacidad: ['', [Validators.required, Validators.min(1)]]
     });
   }
 
-  // Método para manejar el cambio entre evento pagado y gratuito
   onPriceTypeChange(isPaid: boolean) {
     this.isPaid = isPaid;
     if (isPaid) {
-      this.createEventForm.controls['precio'].enable(); // Habilita el campo de precio
+      this.createEventForm.controls['precio'].enable();
     } else {
-      this.createEventForm.controls['precio'].disable(); // Deshabilita el campo de precio
-      this.createEventForm.controls['precio'].setValue(null); // Limpia el valor si es gratuito
+      this.createEventForm.controls['precio'].disable();
+      this.createEventForm.controls['precio'].setValue(null);
     }
   }
 
-  // Método para enviar el formulario
   onSubmit() {
     if (this.createEventForm.invalid) {
       alert('Por favor, complete todos los campos requeridos.');
       return;
     }
 
-    const eventRequest = this.createEventForm.value;
+    if (!this.organizadorId) {
+      alert('No se pudo obtener la información del usuario. Inicie sesión nuevamente.');
+      return;
+    }
+
+    const eventRequest = {
+      ...this.createEventForm.value,
+      organizadorId: this.organizadorId  // Asigna el organizadorId aquí
+    };
 
     this.eventService.createEvent(eventRequest).subscribe(
       (response) => {
         alert('Evento creado con éxito');
-        this.router.navigate(['/eventos']); // Redirige a la página de eventos
+        this.router.navigate(['/gestionar-eventos']);
       },
       (error) => {
         console.error('Error al crear el evento:', error);
@@ -73,6 +79,13 @@ export class CrearEventoComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    const authenticatedUser = this.service.getAuthenticatedUser();
+    if (authenticatedUser && authenticatedUser.id) {
+      this.organizadorId = authenticatedUser.id;  // Obtiene y almacena el ID del usuario logueado
+    } else {
+      alert('No se pudo obtener la información del usuario. Inicie sesión nuevamente.');
+    }
+
     this.service.getCategories().subscribe(
       (data: string[]) => {
         this.categories = data;

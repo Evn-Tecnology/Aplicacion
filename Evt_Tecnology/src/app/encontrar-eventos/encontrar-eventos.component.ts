@@ -1,31 +1,70 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import {HeaderNologComponent} from "../header-nolog/header-nolog.component"; // Importa CommonModule
+import { HeaderNologComponent } from "../header-nolog/header-nolog.component";
+import { EventService } from '../service/event.service';
+import { EventResponse } from '../model/models';
 
 @Component({
   selector: 'app-encontrar-eventos',
   standalone: true,
-  imports: [RouterLink, FormsModule, CommonModule, HeaderNologComponent,],
+  imports: [RouterLink, FormsModule, CommonModule, HeaderNologComponent],
   templateUrl: './encontrar-eventos.component.html',
   styleUrls: ['./encontrar-eventos.component.scss']
 })
-export class EncontrarEventosComponent {
-  eventos = [
-    { id: '1', nombre: 'Evento de IA Avanzada', fecha: '10 Nov 2024', lugar: 'Madrid, España', categoria: 'Inteligencia Artificial', precio: 'Gratis' },
-    { id: '2', nombre: 'Conferencia de Ciberseguridad', fecha: '15 Nov 2024', lugar: 'Barcelona, España', categoria: 'Ciberseguridad', precio: '€50.00' },
-    // otros eventos con sus respectivos ids...
-  ];
+export class EncontrarEventosComponent implements OnInit {
 
-  eventosFiltrados = this.eventos;
+  eventos: EventResponse[] = [];
+  eventosFiltrados: EventResponse[] = [];
+  categorias: string[] = [];
+  searchTerm: string = '';
 
-  onSearch(form: any) {
-    const termino = form.value.searchTerm.toLowerCase();
-    this.eventosFiltrados = this.eventos.filter(evento =>
-      evento.nombre.toLowerCase().includes(termino) ||
-      evento.categoria.toLowerCase().includes(termino) ||
-      evento.lugar.toLowerCase().includes(termino)
+  constructor(private eventService: EventService) {}
+
+  ngOnInit(): void {
+    this.cargarEventos();
+    this.cargarCategorias();
+  }
+
+  cargarEventos(): void {
+    this.eventService.getEvents().subscribe(
+      (response) => {
+        this.eventos = response;
+        this.eventosFiltrados = this.eventos;
+      },
+      (error) => {
+        console.error('Error al obtener eventos:', error);
+      }
     );
+  }
+
+  cargarCategorias(): void {
+    this.eventService.getCategories().subscribe(
+      (data: string[]) => {
+        this.categorias = data;
+      },
+      (error) => {
+        console.error('Error al obtener categorías:', error);
+      }
+    );
+  }
+
+  onSearch(): void {
+    const term = this.searchTerm.toLowerCase();
+    this.eventosFiltrados = this.eventos.filter(evento =>
+      evento.event_nombre.toLowerCase().includes(term)
+    );
+  }
+
+  aplicarFiltros(categoria: string[], precio: string[]): void {
+    this.eventosFiltrados = this.eventos.filter(evento => {
+      const coincideCategoria = categoria.length ? categoria.includes(evento.categoriaEvento.toLowerCase()) : true;
+      const coincidePrecio = precio.length
+        ? (precio.includes('gratis') && !evento.esPagado) || (precio.includes('pago') && evento.esPagado)
+        : true;
+
+      return coincideCategoria && coincidePrecio;
+    });
   }
 }
