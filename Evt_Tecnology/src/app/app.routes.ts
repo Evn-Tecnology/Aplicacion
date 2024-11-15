@@ -13,6 +13,7 @@ import {authenticatedGuard} from "./guards/authenticated.guard";
 import {authGuard} from "./guards/auth.guard";
 
 
+
 export const routes: Routes = [
     { path: '', redirectTo: 'principal', pathMatch: 'full' },
     { path: 'registro-usuario', component: RegistrarUsuarioComponent, canActivate:[authenticatedGuard] },
@@ -23,7 +24,7 @@ export const routes: Routes = [
     { path: 'principal', component: PrincipalComponent, canActivate:[authenticatedGuard] },
     { path: 'info-evento', component: InfoEventoComponent},
     { path: 'inscribirse-evento', component: InscribirseEventoComponent },
-    { path: 'gestionar-eventos', component: GestionarEventosComponent, canActivate:[authGuard] },
+    { path: 'gestionar-eventos', component: GestionarEventosComponent, canActivate:[authGuard]},
   { path: 'principal-logueado', component: PrincipalLogueadoComponent, canActivate:[authGuard] },
     { path: '**', redirectTo: 'principal'}
 ];

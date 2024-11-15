@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { HeaderNologComponent } from "../header-nolog/header-nolog.component";
 import { EventService } from '../service/event.service';
 import { EventResponse } from '../model/models';
+import {HeaderLogComponent} from "../header-log/header-log.component";
 
 @Component({
   selector: 'app-encontrar-eventos',
   standalone: true,
-  imports: [RouterLink, FormsModule, CommonModule, HeaderNologComponent],
+  imports: [RouterLink, FormsModule, CommonModule, HeaderNologComponent, HeaderLogComponent],
   templateUrl: './encontrar-eventos.component.html',
   styleUrls: ['./encontrar-eventos.component.scss']
 })
