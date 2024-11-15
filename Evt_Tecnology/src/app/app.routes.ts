@@ -6,6 +6,10 @@ import { PrincipalComponent } from './principal/principal.component';
 import { CrearEventoComponent } from './crear-evento/crear-evento.component';
 import { EncontrarEventosComponent } from './encontrar-eventos/encontrar-eventos.component';
 import { InfoEventoComponent } from './info-evento/info-evento.component';
+import {InscribirseEventoComponent} from "./inscribirse-evento/inscribirse-evento.component";
+import {GestionarEventosComponent} from "./gestionar-eventos/gestionar-eventos.component";
+import {PrincipalLogueadoComponent} from "./principal-logueado/principal-logueado.component";
+
 
 export const routes: Routes = [
     { path: '', redirectTo: 'principal', pathMatch: 'full' },
@@ -17,6 +21,9 @@ export const routes: Routes = [
     { path: 'principal', component: PrincipalComponent },
     { path: 'info-evento', component: InfoEventoComponent},
     { path: 'info-evento/:id', component: InfoEventoComponent },
+    { path: 'inscribirse-evento', component: InscribirseEventoComponent },
+  { path: 'gestionar-eventos', component: GestionarEventosComponent },
+  { path: 'principal-logueado', component: PrincipalLogueadoComponent },
     { path: '**', redirectTo: 'principal'}
 ];
 

@@ -1,0 +1,161 @@
+/* Global Styles */
+:root {
+  --primary-color: #3b82f6;
+  --secondary-color: #1a2540;
+  --text-color: #333;
+  --background-light: #f9f9f9;
+  --button-bg: #ffffff;
+  --button-text: #3b82f6;
+  --button-hover-bg: #e0e7ff;
+  --button-hover-text: #1a2540;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar .logo .logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.navbar .nav-links a {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Auth Section */
+.auth-section {
+  display: flex;
+  align-items: center; // Centra los iconos verticalmente
+  gap: 1.5rem; // Ajusta el espacio entre los iconos
+}
+
+.notification-icon,
+.user-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.notification-icon .notification-img {
+  width: 30px; /* Tamaño del ícono de notificación dentro del círculo */
+  height: 30px;
+}
+
+/* User Menu */
+.user-menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.user-menu .user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.user-menu:hover .user-avatar {
+  transform: scale(1.1);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 8px;
+  min-width: 240px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-10px);
+  opacity: 0;
+  z-index: 100;
+}
+
+.user-menu:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-menu .user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dropdown-menu .user-info img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.dropdown-menu .user-info span {
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.dropdown-menu .menu-items a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.dropdown-menu .menu-items a:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.dropdown-menu .menu-items i {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+}

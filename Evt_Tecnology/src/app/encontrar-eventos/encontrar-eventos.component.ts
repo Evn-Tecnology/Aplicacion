@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common'; // Importa CommonModule
+import { CommonModule } from '@angular/common';
+import {HeaderNologComponent} from "../header-nolog/header-nolog.component"; // Importa CommonModule
 
 @Component({
   selector: 'app-encontrar-eventos',
   standalone: true,
-  imports: [RouterLink, FormsModule, CommonModule,],
+  imports: [RouterLink, FormsModule, CommonModule, HeaderNologComponent,],
   templateUrl: './encontrar-eventos.component.html',
   styleUrls: ['./encontrar-eventos.component.scss']
 })
@@ -21,7 +22,7 @@ export class EncontrarEventosComponent {
 
   onSearch(form: any) {
     const termino = form.value.searchTerm.toLowerCase();
-    this.eventosFiltrados = this.eventos.filter(evento => 
+    this.eventosFiltrados = this.eventos.filter(evento =>
       evento.nombre.toLowerCase().includes(termino) ||
       evento.categoria.toLowerCase().includes(termino) ||
       evento.lugar.toLowerCase().includes(termino)

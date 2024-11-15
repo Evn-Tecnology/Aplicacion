@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import {HeaderNologComponent} from "../header-nolog/header-nolog.component";
 
 @Component({
   selector: 'app-principal',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, HeaderNologComponent],
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.scss']
 })

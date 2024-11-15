@@ -1,0 +1,87 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <img src="logo.png" alt="TechConnect" class="logo-img">
+      <span class="logo-text" routerLink = "/home">TechConnect</span>
+    </div>
+    <div class="nav-links">
+      <a routerLink = "/encontrar-evento">Encontrar eventos</a>
+      <a routerLink = "/crear-evento" >Crear eventos</a>
+    </div>
+    <div class="auth-section">
+      <input type="text" placeholder="Buscar eventos..." class="search-input">
+      <button class="btn" routerLink = "/auth/login" >Iniciar Sesión</button>
+      <button class="btn-primary" routerLink = "/auth/register" >Registrarse</button>
+    </div>
+  </div>
+</nav>
+
+<div class="event-container">
+  <div class="event-main">
+    <h1 class="event-title">TÍTULO DEL EVENTO</h1>
+
+    <div class="event-content">
+      <div class="event-image">
+        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87" alt="Evento">
+      </div>
+
+      <div class="event-details">
+        <div class="detail-row">
+          <span class="label">Fecha:</span>
+          <span class="value">01/01/10</span>
+          <span class="label location">Lugar:</span>
+          <span class="value">Trujillo</span>
+        </div>
+
+        <div class="event-description">
+          <p>Información detallada del evento...</p>
+        </div>
+
+        <div class="price-section">
+          <span class="label">Precio:</span>
+          <span class="price">s/. 50</span>
+        </div>
+
+        <button class="register-button">Inscribirme</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="speaker-sidebar">
+    <div class="speaker-profile">
+      <h2>Nombre del expositor</h2>
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+           alt="Expositor"
+           class="speaker-image">
+      <div class="biography-box">
+        <p>Biografía corta...</p>
+      </div>
+
+      <div class="rating">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+      </div>
+
+      <div class="reviews">
+        <div class="review-item">
+          <img src="https://ui-avatars.com/api/?name=User" alt="Usuario" class="user-avatar">
+          <div class="review-content">
+            <p class="username">Usuario 12345</p>
+            <p class="comment">Comentario de reseña...</p>
+          </div>
+        </div>
+        <div class="review-item">
+          <img src="https://ui-avatars.com/api/?name=User" alt="Usuario" class="user-avatar">
+          <div class="review-content">
+            <p class="username">Usuario 14345</p>
+            <p class="comment">Comentario de reseña...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

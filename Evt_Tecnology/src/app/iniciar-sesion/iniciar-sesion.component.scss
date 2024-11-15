@@ -1,3 +1,83 @@
+// Variables de color
+$primary-color: #3b82f6;
+$secondary-color: #1a2540;
+$text-color: #333;
+$background-light: #f9f9f9;
+$font-family: 'Roboto', sans-serif;
+$button-bg: #ffffff; // Color de fondo de los botones
+$button-text: $primary-color; // Color del texto en los botones
+$button-hover-bg: #e0e7ff; // Color de fondo en hover
+$button-hover-text: $secondary-color; // Color del texto en hover
+
+// Navbar
+.navbar {
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $secondary-color;
+    }
+  }
+
+  .nav-links a {
+    font-size: 1.25rem; // Aumenta el tamaño de fuente
+    font-weight: 600; // Aumenta el grosor de la fuente
+    color: $secondary-color; // Ajusta el color (usa el que prefieras)
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .auth-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .search-input {
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: 1px solid #d1d5db;
+    }
+
+    .btn, .btn-primary {
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .btn {
+      color: $secondary-color;
+    }
+
+    .btn-primary {
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+}
+
+
 // Color variables
 $primary-color: #3b82f6;
 $secondary-color: #3b82f6;
@@ -70,7 +150,7 @@ body {
 
     .icon-container {
       margin-bottom: $spacing-lg;
-      
+
       i {
         font-size: 3rem;
         color: $primary-color;
@@ -107,30 +187,31 @@ body {
 
   .input-container {
     position: relative;
-    
+
     input {
-        width: 100%;
-        max-width: 90%; // Asegura que no se extienda más allá de su contenedor
-        padding: $spacing-md $spacing-md; // Ajusta el padding para que no sea tan grande
-        border: 2px solid $border-color;
-        border-radius: $border-radius-lg;
-        font-size: $font-size-base;
-        transition: all 0.3s ease;
-      
-        &:focus {
-            outline: none;
-            border-color: $primary-color;
-            box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
-        }
+      width: 100%;
+      max-width: 100%;
+      padding: $spacing-md $spacing-md;
+      border: 2px solid $border-color;
+      border-radius: $border-radius-lg;
+      font-size: $font-size-base;
+      transition: all 0.3s ease;
 
-        &::placeholder {
-            color: #9ca3af;
-        }
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+      }
+
+      &::placeholder {
+        color: #9ca3af;
+      }
     }
+  }
 
 
 
-    .toggle-password {
+  .toggle-password {
       position: absolute;
       right: $spacing-md;
       top: 50%;
@@ -146,7 +227,7 @@ body {
       }
     }
   }
-}
+
 
 .forgot-password {
   text-align: right;
@@ -194,7 +275,7 @@ body {
 .auth-links {
   text-align: center;
   margin-top: $spacing-xl;
-  
+
   p {
     color: #6b7280;
     font-size: $font-size-sm;
@@ -207,7 +288,7 @@ body {
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
-  
+
   &:hover {
     color: darken($primary-color, 15%);
     text-decoration: underline;
@@ -234,6 +315,9 @@ body {
   }
 }
 
+
+
+
 // Fondo de la página
 .login-container {
   background: linear-gradient(135deg, #3b82f6, #6a67ce); // Fondo degradado
@@ -255,3 +339,4 @@ body {
 .fa-spin {
   animation: spin 2s linear infinite;
 }
+

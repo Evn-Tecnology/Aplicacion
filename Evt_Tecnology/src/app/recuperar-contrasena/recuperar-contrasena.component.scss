@@ -1,3 +1,84 @@
+// Global Styles
+$primary-color: #3b82f6;
+$secondary-color: #1a2540;
+$text-color: #333;
+$background-light: #f9f9f9;
+$font-family: 'Roboto', sans-serif;
+$button-bg: #ffffff; // Color de fondo de los botones
+$button-text: $primary-color; // Color del texto en los botones
+$button-hover-bg: #e0e7ff; // Color de fondo en hover
+$button-hover-text: $secondary-color; // Color del texto en hover
+
+// Navbar
+.navbar {
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $secondary-color;
+    }
+  }
+
+  .nav-links a {
+    font-size: 1.25rem; // Aumenta el tamaño de fuente
+    font-weight: 600; // Aumenta el grosor de la fuente
+    color: $secondary-color; // Ajusta el color (usa el que prefieras)
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .auth-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .search-input {
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: 1px solid #d1d5db;
+    }
+
+    .btn, .btn-primary {
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .btn {
+      color: $secondary-color;
+    }
+
+    .btn-primary {
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+}
+
+
+
 // Variables
 $primary-color: #3b82f6;
 $secondary-color: #3b82f6;
@@ -37,7 +118,7 @@ $spacing-xl: 2rem;
   background-image: url('/foto1.png');
   background-size: cover;
   background-position: center;
-  
+
   @media (max-width: $tablet) {
     display: none;
   }
@@ -95,7 +176,7 @@ $spacing-xl: 2rem;
 
   .input-container {
     position: relative;
-    
+
     i {
       position: absolute;
       left: $spacing-md;
@@ -169,7 +250,7 @@ $spacing-xl: 2rem;
 .resend-code {
   text-align: center;
   margin-bottom: $spacing-lg;
-  
+
   span {
     color: #6b7280;
     font-size: 0.875rem;

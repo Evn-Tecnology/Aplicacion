@@ -1,145 +1,174 @@
-<!-- Navbar -->
-<nav class="navbar">
-  <div class="container">
-    <div class="logo">
-      <img src="logo.png" alt="TechConnect" class="logo-img">
-      <span class="logo-text">TechConnect</span>
-    </div>
-    <div class="nav-links">
-      <a href="#">Encontrar eventos</a>
-      <a routerLink = "/crear-evento" >Crear eventos</a>
-    </div>
-    <div class="auth-section">
-      <input type="text" placeholder="Buscar eventos..." class="search-input">
-      <button class="btn" routerLink = "/iniciar-sesion" >Iniciar Sesión</button>
-      <button class="btn-primary" routerLink = "/registro-usuario" >Registrarse</button>
-    </div>
-  </div>
-</nav>
+<app-header-log/>
 
 <!-- Hero Section -->
-<header class="hero">
+<div class="hero">
   <div class="hero-content">
-    <h1>Conecta con la Comunidad Tech</h1>
-    <p>Descubre eventos tecnológicos únicos y conéctate con profesionales del sector</p>
-    <button class="btn-primary">Explorar Eventos</button>
+    <h1>CREAR EVENTOS</h1>
+    <p>Crea experiencias inolvidables para entusiastas y profesionales de la tecnología</p>
   </div>
-</header>
+</div>
 
-<!-- Create Event Form -->
-<div class="create-event-container">
-  <h1 class="page-title">Crear nuevo evento</h1>
-  
-  <form class="event-form">
-    <div class="form-grid">
-      <!-- Left Column -->
-      <div class="form-column">
+
+<!-- crear-evento.component.html -->
+<div class="event-form-container">
+  <div class="event-form-card">
+    <header class="form-header">
+      <h1>Crear Evento</h1>
+      <p class="subtitle">Complete los detalles del evento</p>
+    </header>
+
+    <form [formGroup]="createEventForm" (ngSubmit)="onSubmit()" class="event-form">
+      <div class="form-grid">
+        <!-- Left Column -->
         <div class="form-section">
-          <h2>Detalles básicos</h2>
-          
           <div class="form-group">
-            <label for="eventName">Nombre del evento</label>
-            <input type="text" id="eventName" name="eventName">
+            <label class="form-label">Nombre del evento</label>
+            <input
+              type="text"
+              formControlName="eventNombre"
+              class="form-input"
+              placeholder="Ingrese el nombre del evento"
+            >
+            <span class="error-message" *ngIf="createEventForm.get('eventNombre')?.errors?.['required'] && createEventForm.get('eventNombre')?.touched">
+              El nombre es requerido
+            </span>
           </div>
 
-          <div class="form-row">
+          <div class="date-time-group">
             <div class="form-group">
-              <label for="startDate">Fecha de inicio</label>
-              <input type="date" id="startDate" name="startDate">
+              <label class="form-label">Fecha de inicio</label>
+              <input
+                type="date"
+                formControlName="eventFecha"
+                class="form-input"
+              >
             </div>
-            <div class="form-group">
-              <label for="endDate">Fecha de término</label>
-              <input type="date" id="endDate" name="endDate">
-            </div>
-          </div>
 
-          <div class="form-row">
             <div class="form-group">
-              <label for="startTime">Hora de inicio</label>
-              <input type="time" id="startTime" name="startTime">
-            </div>
-            <div class="form-group">
-              <label for="endTime">Hora de término</label>
-              <input type="time" id="endTime" name="endTime">
+              <label class="form-label">Hora</label>
+              <input
+                type="time"
+                formControlName="eventHora"
+                class="form-input"
+              >
             </div>
           </div>
 
           <div class="form-group">
-            <label for="location">Ubicación</label>
-            <input type="text" id="location" name="location">
+            <label class="form-label">Lugar</label>
+            <input
+              type="text"
+              formControlName="eventLugar"
+              class="form-input"
+              placeholder="Ingrese la ubicación"
+            >
           </div>
 
           <div class="form-group">
-            <label for="category">Categoría</label>
-            <select id="category" name="category">
-              <option value="">Seleccionar categoría</option>
-              <option value="IA">Inteligencia Artificial</option>
-              <option value="ciber">Ciberseguridad</option>
-              <option value="bigData">BigData y Anlisis de Datos</option>
-              <option value="other">Otro</option>
+            <label for="categoriaEvento">Categoría</label>
+            <select id="categoriaEvento" formControlName="categoriaEvento">
+              <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
             </select>
+             </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="form-section">
+          <div class="form-group">
+            <label class="form-label">Tipo de Evento</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  formControlName="tipoEvento"
+                  value="presencial"
+                >
+                <span>Presencial</span>
+              </label>
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  formControlName="tipoEvento"
+                  value="virtual"
+                >
+                <span>Virtual</span>
+              </label>
+            </div>
           </div>
 
           <div class="form-group">
-            <label>Visibilidad del evento</label>
+            <label class="form-label">Fecha de término</label>
+            <input
+              type="date"
+              formControlName="eventFechaFin"
+              class="form-input"
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Descripción del evento</label>
+            <textarea
+              formControlName="eventDescripcion"
+              class="form-textarea"
+              rows="4"
+              placeholder="Describa el evento"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tipo de Inscripción</label>
             <div class="radio-group">
-              <label class="radio-label">
-                <input type="radio" name="visibility" value="public">
-                Público
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  formControlName="esPagado"
+                  [value]="false"
+                  (change)="onPriceTypeChange(false)"
+                >
+                <span>Libre inscripción</span>
               </label>
-              <label class="radio-label">
-                <input type="radio" name="visibility" value="private">
-                Privado
+              <label class="radio-option">
+                <input
+                  type="radio"
+                  formControlName="esPagado"
+                  [value]="true"
+                  (change)="onPriceTypeChange(true)"
+                >
+                <span>Pago</span>
               </label>
             </div>
+          </div>
+
+          <div class="form-group" *ngIf="isPaid">
+            <label class="form-label">Precio</label>
+            <input
+              type="number"
+              formControlName="precio"
+              class="form-input"
+              min="0"
+              step="0.01"
+              placeholder="Ingrese el precio"
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Capacidad</label>
+            <input
+              type="number"
+              formControlName="capacidad"
+              class="form-input"
+              min="1"
+              placeholder="Número de participantes"
+            >
           </div>
         </div>
       </div>
 
-      <!-- Right Column -->
-      <div class="form-column">
-        <div class="form-section">
-          <h2>Información adicional</h2>
-          
-          <div class="form-group">
-            <label for="description">Descripción del evento</label>
-            <textarea id="description" name="description" rows="6"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>Imágenes del evento</label>
-            <div class="image-upload-container">
-              <input type="file" id="eventImages" multiple accept="image/*" class="hidden-input">
-              <div class="upload-placeholder">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <p>Haz clic para subir imágenes</p>
-              </div>
-            </div>
-            <div class="image-preview">
-              <!-- Image previews will be added here -->
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Precio</label>
-            <div class="price-options">
-              <label class="radio-label">
-                <input type="radio" name="priceType" value="free">
-                Libre inscripción
-              </label>
-              <label class="radio-label">
-                <input type="radio" name="priceType" value="paid">
-                Pago
-              </label>
-            </div>
-            <input type="number" name="price" placeholder="Ingrese el monto" class="price-input">
-          </div>
-        </div>
-
-        <button type="submit" class="btn-submit">
-          Publicar evento
+      <div class="form-actions">
+        <button type="submit" class="submit-button" [disabled]="!createEventForm.valid">
+          Publicar Evento
         </button>
       </div>
+    </form>
     </div>
-  </form>
 </div>

@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
+import {HeaderNologComponent} from "../header-nolog/header-nolog.component";
 
 @Component({
   selector: 'app-recuperar-contrasena',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, HeaderNologComponent],
   templateUrl: './recuperar-contrasena.component.html',
   styleUrl: './recuperar-contrasena.component.scss'
 })
 export class RecuperarContrasenaComponent {
-  currentStep: number = 1; 
+  currentStep: number = 1;
 
 
   nextStep() {

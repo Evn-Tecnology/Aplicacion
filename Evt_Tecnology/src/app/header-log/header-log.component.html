@@ -1,0 +1,45 @@
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <img src="logo.png" alt="TechConnect" class="logo-img">
+      <span class="logo-text">TechConnect</span>
+    </div>
+    <div class="nav-links">
+      <a href="/encontrar-evento">Encontrar eventos</a>
+      <a href="/crear-evento">Crear eventos</a>
+    </div>
+    <div class="auth-section">
+      <!-- Ícono de notificación personalizado -->
+      <div class="notification-icon">
+        <img src="campana.png" alt="Notificaciones" class="notification-img">
+      </div>
+      <div class="user-menu">
+        <img src="avatar.png" alt="User" class="user-avatar">
+        <div class="dropdown-menu">
+          <div class="user-info">
+            <img src="avatar.png" alt="User" class="user-avatar">
+            <span>{{ userName }}</span>
+          </div>
+          <div class="menu-items">
+            <a href="/profile">
+              <i class="material-icons"></i> Mi Perfil
+            </a>
+            <a href="/settings">
+              <i class="material-icons"></i> Configuración y Privacidad
+            </a>
+            <a href="/events">
+              <i class="material-icons"></i> Gestión de eventos
+            </a>
+            <a href="/registrations">
+              <i class="material-icons"></i> Gestión de inscripciones
+            </a>
+            <a href="/logout">
+              <i class="material-icons"></i> Cerrar sesión
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
