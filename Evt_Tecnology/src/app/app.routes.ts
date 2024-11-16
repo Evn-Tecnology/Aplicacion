@@ -20,7 +20,7 @@ export const routes: Routes = [
     { path: 'iniciar-sesion', component: IniciarSesionComponent, canActivate:[authenticatedGuard] },
     { path: 'recuperar-contraseña', component: RecuperarContrasenaComponent, canActivate:[authenticatedGuard] },
     { path: 'crear-evento', component: CrearEventoComponent, canActivate:[authGuard] },
-    { path: 'encontrar-evento', component: EncontrarEventosComponent},
+    { path: 'encontrar-evento', component: EncontrarEventosComponent, canActivate:[authGuard]},
     { path: 'principal', component: PrincipalComponent, canActivate:[authenticatedGuard] },
     { path: 'info-evento', component: InfoEventoComponent},
     { path: 'inscribirse-evento', component: InscribirseEventoComponent },
