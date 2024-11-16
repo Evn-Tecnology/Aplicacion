@@ -12,8 +12,6 @@ import {PrincipalLogueadoComponent} from "./principal-logueado/principal-loguead
 import {authenticatedGuard} from "./guards/authenticated.guard";
 import {authGuard} from "./guards/auth.guard";
 
-
-
 export const routes: Routes = [
     { path: '', redirectTo: 'principal', pathMatch: 'full' },
     { path: 'registro-usuario', component: RegistrarUsuarioComponent, canActivate:[authenticatedGuard] },
@@ -28,9 +26,3 @@ export const routes: Routes = [
     { path: 'principal-logueado', component: PrincipalLogueadoComponent, canActivate:[authGuard] },
     { path: '**', redirectTo: 'principal'}
 ];
-
-
-
-
-
-
