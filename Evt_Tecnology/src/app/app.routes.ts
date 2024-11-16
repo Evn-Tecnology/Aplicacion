@@ -25,7 +25,7 @@ export const routes: Routes = [
     { path: 'info-evento', component: InfoEventoComponent},
     { path: 'inscribirse-evento', component: InscribirseEventoComponent },
     { path: 'gestionar-eventos', component: GestionarEventosComponent, canActivate:[authGuard]},
-  { path: 'principal-logueado', component: PrincipalLogueadoComponent, canActivate:[authGuard] },
+    { path: 'principal-logueado', component: PrincipalLogueadoComponent, canActivate:[authGuard] },
     { path: '**', redirectTo: 'principal'}
 ];
 
