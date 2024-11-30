@@ -7,7 +7,7 @@ import { StorageService } from './storage.service'; // Importa StorageService si
 
 export const environment = {
   production: false,
-  baseURL: 'http://localhost:8080/api/v1'
+  baseURL: 'https://event-tecnology-latest-3.onrender.com/api/v1'
 };
 
 @Injectable({
